@@ -1,0 +1,53 @@
+#container {
+    margin: auto;
+    max-width: 1200px;
+}
+
+#topbar {
+    background-color: transparent;
+    border-bottom: 1px solid darkgrey;
+    height: 50px;
+}
+
+#search {
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+}
+
+#search input {
+    padding: 10px;
+    margin: 20px;
+    text-align: center;
+}
+
+#map {
+    margin: auto;
+    text-align: center;
+    width: 1000px;
+    height: 500px;
+}
+
+#data {
+    margin: auto;
+    max-width: 1000px;
+    padding-top: 20px;
+}
+
+#data-buoyes {
+    float: left;
+    width: 49%;
+    background-color: #F1F1F1;
+    padding: 20px;
+    text-align: center;
+    min-height: 300px;
+}
+
+#data-sat {
+    float: right;
+    width: 49%;
+    background-color: #F1F1F1;
+    padding: 20px;
+    text-align: center;
+    min-height: 300px;
+}

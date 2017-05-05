@@ -1,0 +1,16 @@
+<div layout="column" flex>
+    <div flex>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h3>
+                    <span>Wasaby</span>
+                </h3>
+            </div>
+        </md-toolbar>
+    </div>
+    <div id="map_canvas" flex>
+        <ui-gmap-google-map center="map.center" zoom="map.zoom">
+            <ui-gmap-markers models="markers" coords="'self'" icon="'icon'"></ui-gmap-markers>
+        </ui-gmap-google-map>
+    </div>
+</div>
