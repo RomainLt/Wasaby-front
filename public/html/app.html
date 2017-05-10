@@ -8,9 +8,57 @@
             </div>
         </md-toolbar>
     </div>
+    <div id="search">
+        <form>
+            <div layout="row">
+                <md-input-container>
+                    <input type="text" ng-model="buoysID" placeholder="ID de la bouée">
+                </md-input-container>
+                <md-input-container>
+                    <md-button type="submit" name="searchBuoys">Rechercher</md-button>
+                </md-input-container>
+            </div>
+        </form>
+
+    </div>
     <div id="map_canvas" flex>
         <ui-gmap-google-map center="map.center" zoom="map.zoom">
             <ui-gmap-markers models="markers" coords="'self'" icon="'icon'"></ui-gmap-markers>
         </ui-gmap-google-map>
+    </div>
+
+    <div>
+        <md-content class="md-padding" layout-xs="column" layout="row">
+            <div flex-xs flex-gt-xs="50" layout="column">
+                <md-card md-theme="{{ showDarkTheme ? 'dark-orange' : 'default' }}" md-theme-watch>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">Vagues bouée</span>
+                            <span class="md-subhead">Bla bla bla</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-content layout="row" layout-align="space-between">
+                        <div class="md-media-xl card-media">
+                            <img id="img-card" src="../img/vague.png" />
+                        </div>
+                    </md-card-content>
+                </md-card>
+            </div>
+            <div flex-xs flex-gt-xs="50" layout="column">
+                <md-card md-theme="{{ showDarkTheme ? 'dark-orange' : 'default' }}" md-theme-watch>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">Spectre Bouées</span>
+                            <span class="md-subhead">Blo blo blo</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-content layout="row" layout-align="space-between">
+                        <div class="md-media-xl card-media">
+                            <img id="img-card" src="../img/spectre.png" />
+                        </div>
+                    </md-card-content>
+                </md-card>
+            </div>
+        </md-content>
     </div>
 </div>
