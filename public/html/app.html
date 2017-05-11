@@ -23,9 +23,24 @@
     </div>
     <div id="map_canvas" flex>
         <ui-gmap-google-map center="map.center" zoom="map.zoom">
-            <ui-gmap-markers models="markers" coords="'self'" icon="'icon'"></ui-gmap-markers>
+            <ui-gmap-window show="map.window.show" coords="map.window.model" options="map.window.options" closeClick="map.window.closeClick()">
+                <div>
+                    <p>ID : {{map.window.model.id}}</p>
+                    <p>Longitude : {{map.window.model.longitude}}</p>
+                    <p>Latitude : {{map.window.model.latitude}}</p>
+                    <a href="">Afficher les données</a>
+                </div>
+            </ui-gmap-window>
+
+            <ui-gmap-markers models="map.markers" coords="'self'" events="map.markersEvents" options="'options'">
+            </ui-gmap-markers>
+            <!--<ui-gmap-markers idKey="markers.id" models="markers" coords="'self'" icon="'icon'"></ui-gmap-markers>-->
         </ui-gmap-google-map>
     </div>
+
+    <!--<div>
+        <p>{{zobe}}</p>
+    </div>-->
 
     <div>
         <md-content class="md-padding" layout-xs="column" layout="row">
