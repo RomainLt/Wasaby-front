@@ -9,38 +9,41 @@
         </md-toolbar>
     </div>
     <div id="search">
-        <form>
+        <form ng-submit="searchBuoysByID()">
             <div layout="row">
                 <md-input-container>
                     <input type="text" ng-model="buoysID" placeholder="ID de la bouée">
                 </md-input-container>
                 <md-input-container>
-                    <md-button type="submit" name="searchBuoys">Rechercher</md-button>
+                    <md-button type="submit">Rechercher</md-button>
                 </md-input-container>
             </div>
         </form>
-
     </div>
     <div id="map_canvas" flex>
         <ui-gmap-google-map center="map.center" zoom="map.zoom">
             <ui-gmap-window show="map.window.show" coords="map.window.model" options="map.window.options" closeClick="map.window.closeClick()">
-                <div>
-                    <p>ID : {{map.window.model.id}}</p>
+                <div ng-controller="markController">
+                    <p>{{map.window.model.id}}</p>
                     <p>Longitude : {{map.window.model.longitude}}</p>
                     <p>Latitude : {{map.window.model.latitude}}</p>
-                    <a href="">Afficher les données</a>
+                    <a href="" ng-click="searchByClick()">Rechercher</a>
                 </div>
             </ui-gmap-window>
 
             <ui-gmap-markers models="map.markers" coords="'self'" events="map.markersEvents" options="'options'">
             </ui-gmap-markers>
-            <!--<ui-gmap-markers idKey="markers.id" models="markers" coords="'self'" icon="'icon'"></ui-gmap-markers>-->
         </ui-gmap-google-map>
     </div>
 
-    <!--<div>
-        <p>{{zobe}}</p>
-    </div>-->
+    <div id="buoysById" style="display:none;">
+        <h4>Données de la bouée :</h4>
+        <p>{{dataBuoys}}</p>
+    </div>
+
+    <div id="buoysByClick" style="display:none;">
+        <p>Bouéé séléctionnée : {{map.window.model.id}}</p>
+    </div>
 
     <div>
         <md-content class="md-padding" layout-xs="column" layout="row">

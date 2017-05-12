@@ -21,5 +21,14 @@ wasaby.factory('appFactory', function($http) {
                 return response.data;
             });
         },
+        loadOneBuoys: function(id) {
+            return $http({
+                method: 'GET',
+                url: "http://wasabyback.cleverapps.io/searchabuoy/?id=" + id,
+                headers: { 'Content-Type': 'application/json' }
+            }).then(function(response) {
+                return response.data;
+            });
+        },
     }
 });
