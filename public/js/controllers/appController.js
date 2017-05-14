@@ -1,4 +1,4 @@
-wasaby.controller('appController', function($scope, appFactory, uiGmapGoogleMapApi) {
+wasaby.controller('appController', function($scope, $http, appFactory, uiGmapGoogleMapApi) {
 
     appFactory.loadBuoys().then(function(data) {
         $scope.map.markers = data;
@@ -19,6 +19,45 @@ wasaby.controller('appController', function($scope, appFactory, uiGmapGoogleMapA
             click: function(marker, eventName, model) {
                 $scope.map.window.model = model;
                 $scope.map.window.show = true;
+                id = model.id;
+                console.log(id);
+                var res = id.replace("WMO", "");
+                console.log(res);
+
+                var url = "http://www.ifremer.fr/datavore/exp/datavore/public/GWBUOYNDBCSPECTRA%3EV1/spectra/global/20160101002600/process/?service=generateSpectra&nearest=4600&id=" + res;
+
+                $scope.buoysSpectre = url;
+
+
+                // $http({
+                //     method: 'GET',
+                //     url: "http://www.ifremer.fr/datavore/exp/datavore/public/GWBUOYNDBCSPECTRA%3EV1/spectra/global/20160101002600/process/?service=generateSpectra&nearest=4600&id=" + res,
+                //     headers: { 'Content-Type': 'application/json' }
+                // }).then(function(response) {
+                //     console.log(response.data);
+
+                //     var test = false;
+
+                //     while (test == false) {
+                //         if (response.data != "") {
+                //             test = true;
+                //         }
+                //     }
+
+                //     if (test == true) {
+                //         var buffer = response.data;
+                //         var binary = '';
+                //         var bytes = new Uint8Array(buffer);
+                //         var len = bytes.byteLength;
+                //         for (var i = 0; i < len; i++) {
+                //             binary += String.fromCharCode(bytes[i]);
+                //         }
+                //         $scope.buoysSpectre = window.btoa(binary);
+                //     }
+
+                // }).catch(function(err) {
+                //     console.error('error in getting static img.');
+                // });
             }
 
         },
@@ -32,12 +71,6 @@ wasaby.controller('appController', function($scope, appFactory, uiGmapGoogleMapA
         }
     };
 
-    // $scope.searchBuoysByClick = function(id) {
-    //     console.log("hello");
-    //     console.log(id);
-    //     $scope.dataBuoys = id;
-    // }
-
     uiGmapGoogleMapApi.then(function(maps) {});
 
     $scope.searchBuoysByID = function() {
@@ -50,14 +83,5 @@ wasaby.controller('appController', function($scope, appFactory, uiGmapGoogleMapA
             else
                 document.getElementById("buoysById").style.display = "none";
         });
-    };
-});
-
-wasaby.controller('markController', function($scope) {
-    $scope.searchByClick = function() {
-        if (document.getElementById("buoysByClick").style.display == "none")
-            document.getElementById("buoysByClick").style.display = "block";
-        else
-            document.getElementById("buoysByClick").style.display = "none";
     };
 });

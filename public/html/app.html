@@ -23,11 +23,10 @@
     <div id="map_canvas" flex>
         <ui-gmap-google-map center="map.center" zoom="map.zoom">
             <ui-gmap-window show="map.window.show" coords="map.window.model" options="map.window.options" closeClick="map.window.closeClick()">
-                <div ng-controller="markController">
+                <div>
                     <p>{{map.window.model.id}}</p>
                     <p>Longitude : {{map.window.model.longitude}}</p>
                     <p>Latitude : {{map.window.model.latitude}}</p>
-                    <a href="" ng-click="searchByClick()">Rechercher</a>
                 </div>
             </ui-gmap-window>
 
@@ -41,7 +40,7 @@
         <p>{{dataBuoys}}</p>
     </div>
 
-    <div id="buoysByClick" style="display:none;">
+    <div id="buoysByClick">
         <p>Bouéé séléctionnée : {{map.window.model.id}}</p>
     </div>
 
@@ -72,7 +71,7 @@
                     </md-card-title>
                     <md-card-content layout="row" layout-align="space-between">
                         <div class="md-media-xl card-media">
-                            <img id="img-card" src="../img/spectre.png" />
+                            <img id="img-card" src="{{buoysSpectre}}">
                         </div>
                     </md-card-content>
                 </md-card>

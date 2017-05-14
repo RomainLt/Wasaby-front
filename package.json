@@ -1,11 +1,12 @@
 {
-    "name": "Workshop2-Front",
-    "version": "0.0.1",
-    "private": true,
-    "scripts": {
-        "start": "node server.js"
-    },
-    "dependencies": {
-        "express": "~4.14.0"
-    }
+  "name": "Workshop2-Front",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "~4.14.0",
+    "promise": "^7.1.1"
+  }
 }
